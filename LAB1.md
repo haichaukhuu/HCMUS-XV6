@@ -1,4 +1,6 @@
-# Lab 1:
+# Lab 1 - Basics of xv6 and its system calls
+
+## Lab requirements
 
 ## Instructions for Running the Programs
 1. Add each program to the UPROGS section of the Makefile. 
