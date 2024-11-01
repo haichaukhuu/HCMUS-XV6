@@ -39,9 +39,19 @@ The solution for this exercise is in the file `user/primes.c`.
 
 
 ### Exercise 3: find
+Write a simple version of the UNIX find program for xv6: find all the files in a directory tree with a specific name. 
+
+The solution for this exercise is in the file `user/find.c`.
+
+
 ### Exercise 4: xargs
+Write a simple version of the UNIX xargs program for xv6: its arguments describe a command to run, it reads lines from the standard input, and it runs the command for each line, appending the line to the command's arguments.
+
+The solution for this exercise is in the file `user/xargs.c`.
 
 
 ## Lab Report
 
+
 ## References
+https://pdos.csail.mit.edu/6.828/2023/labs/util.html
