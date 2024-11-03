@@ -1,26 +1,5 @@
 # Lab 1 - Basics of xv6 and its system calls
 
-## Instructions for Running the Programs
-1. Add each program to the UPROGS section of the Makefile. 
-
-```
-UPROGS=\
-    ...
-
-    $U/_pingpong\
-    $U/_primes\
-    $U/_find\
-    $U/_xargs
-```
-
-2. Start xv6 
-```
-make qemu
-```
-
-3. Run the Programs \
-After starting xv6, each program can be executed using its name, such as `pingpong`, `primes`, `find`, and `xargs`.
-
 ## Lab requirements
 ### Exercise 1: pingpong
 Write a user-level program that uses xv6 system calls to ''ping-pong'' a byte between two
@@ -50,7 +29,26 @@ Write a simple version of the UNIX xargs program for xv6: its arguments describe
 The solution for this exercise is in the file `user/xargs.c`.
 
 
-## Lab Report
+## Instructions for Running the Programs
+1. Add each program to the UPROGS section of the Makefile. 
+
+```
+UPROGS=\
+    ...
+
+    $U/_pingpong\
+    $U/_primes\
+    $U/_find\
+    $U/_xargs
+```
+
+2. Start xv6 
+```
+make qemu
+```
+
+3. Run the Programs \
+After starting xv6, each program can be executed using its name, such as `pingpong`, `primes`, `find`, and `xargs`.
 
 
 ## References
