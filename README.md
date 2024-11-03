@@ -1,34 +1,45 @@
 # HCMUS Operating System Labs
+
 ## Introduction
 This repository contains solutions for lab exercises for the Operating Systems course at HCMUS.
 
-### Our group members:
-<table style="width:100%">
-  <tr>
-    <th style="text-align:left;">Student ID</th>
-    <th style="text-align:left;">Name</th>
-  </tr>
-  <tr>
-    <td>22120177</td>
-    <td>Van Tuan Kiet</td>
-  </tr>
-  <tr>
-    <td>22120322</td>
-    <td>Tong Trong Tam</td>
-  </tr>
-  <tr>
-    <td>22120457</td>
-    <td>Khuu Hai Chau</td>
-  </tr>
-</table>
+### Lecturers:
+Dr. Vu Thi My Hang \
+Dr. Le Quoc Hoa
+
+### Group members:
+| Student ID | Name           |
+|------------|----------------|
+| 22120177   | Van Tuan Kiet  |
+| 22120322   | Tong Trong Tam |
+| 22120457   | Khuu Hai Chau  |
 
 
 ## Set up
+### Tools Used
+- **GNU Make**: For automating the build process.
+- **GCC**: For compiling the xv6 source code. 
+- **QEMU**: For running xv6 in a virtual environment.
 
-## References
-https://pdos.csail.mit.edu/6.828/2023/labs/util.html
+If you haven’t installed these tools, please refer to the [MIT setup guide](https://pdos.csail.mit.edu/6.1810/2024/tools.html) for installation details.
 
+### This Project
+1. **Clone the Repository**:
+   ```
+   git clone https://github.com/haichaukhuu/HCMUS-OS-Labs-XV6
+   cd HCMUS-OS-Labs-XV6
+   ```
+
+2. **Build and run xv6**:
+   ```
+   make qemu
+   ```
+
+3. **Run the Programs**
+For each lab, refer to the dedicated documentation files for specific requirements, usage, and setup instructions. 
+
+   - **Lab 1**: See [LAB1.md](LAB1.md).
 
 ## License
-This project is licensed under the MIT License. Please see the LICENSE file for details.
+This project is licensed under the MIT License. Please see the `LICENSE` file for details.
 
