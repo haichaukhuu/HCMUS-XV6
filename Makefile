@@ -194,6 +194,10 @@ UPROGS=\
 	$U/_grind\
 	$U/_wc\
 	$U/_zombie\
+	$U/_pingpong\
+	$U/_primes\
+	$U/_find\
+	$U/_xargs\
 
 
 
@@ -273,8 +277,8 @@ ifeq ($(LAB),util)
 endif
 
 
-fs.img: mkfs/mkfs README $(UEXTRA) $(UPROGS)
-	mkfs/mkfs fs.img README $(UEXTRA) $(UPROGS)
+fs.img: mkfs/mkfs $(UEXTRA) $(UPROGS)
+	mkfs/mkfs fs.img $(UEXTRA) $(UPROGS)
 
 -include kernel/*.d user/*.d
 
