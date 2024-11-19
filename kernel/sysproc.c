@@ -120,6 +120,8 @@ syscall handler for sysinfo
 retrieves a user-space ptr (info) to sysinfo struct
 -> validate -> pass to systeminfo function
 */
+
+
 uint64
 sys_sysinfo(void) 
 {
@@ -137,7 +139,7 @@ sys_sysinfo(void)
     return -1; //invalid arg or retrieve fails
   }
   return get_sysinfo(info);
-
+  // int get_sysinfo(uint64 addr)
 }
 
 
