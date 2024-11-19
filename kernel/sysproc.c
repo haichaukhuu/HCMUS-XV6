@@ -5,7 +5,6 @@
 #include "memlayout.h"
 #include "spinlock.h"
 #include "proc.h"
-#include "sysinfo.h"
 
 uint64
 sys_exit(void)
@@ -92,61 +91,3 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
-
-uint64
-sys_trace(void) {
-  // int trace_mask;
-  // // if (argint(0, &trace_mask) < 0) {
-  // //   return -1;
-  // // }
-  // argint(0, &trace_mask);
-  // if (trace_mask < 0)
-  // {
-  //   return -1;
-  // }
-  // // struct proc* p = myproc();
-  // // p->tracemask = trace_mask;
-  // return 0;
-
-	argint(0, &myproc()->tracemask);
-  if (&myproc()->tracemask < 0)
-		return -1;
-
-	return 0;
-}
-
-
-/*
-syscall handler for sysinfo
-retrieves a user-space ptr (info) to sysinfo struct
--> validate -> pass to systeminfo function
-*/
-int get_sysinfo(uint64 addr);
-
-uint64
-sys_sysinfo(void) {
-  //ptr to stat (struct)
-  uint64 addr = 0; 
-
-  //See argaddr in syscall.c
-  // void
-  // argaddr(int n, uint64 *ip)
-  // {
-  //   *ip = argraw(n);
-  // }
-
-  //validation
-  argaddr(0, &addr);
-  if (addr < 0)
-  {
-    return -1; //invalid arg or retrieve fails
-  }
-
-
-  // int get_sysinfo(uint64 addr)
-  return get_sysinfo(addr);
-
-}
-
-
-
