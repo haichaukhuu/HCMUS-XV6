@@ -113,3 +113,31 @@ sys_trace(void) {
 
 	return 0;
 }
+
+
+/*
+syscall handler for sysinfo
+retrieves a user-space ptr (info) to sysinfo struct
+-> validate -> pass to systeminfo function
+*/
+uint64
+sys_sysinfo(void) 
+{
+  //ptr to stat (struct)
+  uint64 info; 
+
+  //See argaddr in syscall.c
+  // void
+  // argaddr(int n, uint64 *ip)
+  // {
+  //   *ip = argraw(n);
+  // }
+  if (argaddr(0, &info) < 0) 
+  {
+    return -1; //invalid arg or retrieve fails
+  }
+  return get_sysinfo(info);
+
+}
+
+
