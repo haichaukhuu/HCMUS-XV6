@@ -5,6 +5,7 @@
 #include "memlayout.h"
 #include "spinlock.h"
 #include "proc.h"
+#include "sysinfo.h"
 
 uint64
 sys_exit(void)
@@ -113,3 +114,39 @@ sys_trace(void) {
 
 	return 0;
 }
+
+
+/*
+syscall handler for sysinfo
+retrieves a user-space ptr (info) to sysinfo struct
+-> validate -> pass to systeminfo function
+*/
+int get_sysinfo(uint64 addr);
+
+uint64
+sys_sysinfo(void) {
+  //ptr to stat (struct)
+  uint64 addr = 0; 
+
+  //See argaddr in syscall.c
+  // void
+  // argaddr(int n, uint64 *ip)
+  // {
+  //   *ip = argraw(n);
+  // }
+
+  //validation
+  argaddr(0, &addr);
+  if (addr < 0)
+  {
+    return -1; //invalid arg or retrieve fails
+  }
+
+
+  // int get_sysinfo(uint64 addr)
+  return get_sysinfo(addr);
+
+}
+
+
+
