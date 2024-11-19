@@ -3,7 +3,7 @@
 #include "param.h"
 #include "spinlock.h"
 #include "defs.h"
-#include "proc.h" //to use myproc()
+#include "proc.h" //to use myproc(), nproc()
 
 #include "sysinfo.h"
 
@@ -16,7 +16,7 @@ int get_sysinfo(uint64 addr)
     struct sysinfo info; //this struct is local, stores sysinfo 
 
     info.freemem = freemem(); 
-    info.nproc = nproc();
+    info.nproc = nproc(); 
 
     /*
     copy the sysinfo struct to the provided user-space addr

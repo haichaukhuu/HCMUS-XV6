@@ -696,3 +696,29 @@ procdump(void)
     printf("\n");
   }
 }
+
+// get the num of active processes
+int
+nproc(void)
+{
+  int n = 0;
+  struct proc *p;
+
+  // iter over all slots in proc table
+  for(p = proc; p < &proc[NPROC]; p++)
+  {
+    //lock the proc for consistent state checking
+    //acquire() func is in kernel/spinlock.c
+    acquire(&p->lock); 
+
+    if (p->state != UNUSED)
+    {
+      ++n;
+    }
+
+    release(&p->lock);
+
+  }
+
+  return n;
+}

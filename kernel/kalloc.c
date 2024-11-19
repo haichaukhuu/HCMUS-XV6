@@ -91,3 +91,21 @@ kalloc(void)
   return (void*)r;
 }
 
+int
+freemem(void)
+{
+  int num_pages = 0; //counter var for free pages
+  struct run *r; //trav the free mem list
+
+  //thread safety
+  acquire(&kmem.lock);
+
+  for (r = kmem.freelist; r != 0; r = r-> next)
+  {
+    ++num_pages;
+  }
+
+  release(&kmem.lock);
+
+  return num_pages * 4096; //num_pages to bytes
+}
