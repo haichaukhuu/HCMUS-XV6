@@ -30,7 +30,8 @@ OBJS = \
   $K/sysfile.o \
   $K/kernelvec.o \
   $K/plic.o \
-  $K/virtio_disk.o
+  $K/virtio_disk.o \
+  $K/sysinfo.o
 
 OBJS_KCSAN = \
   $K/start.o \
@@ -194,11 +195,8 @@ UPROGS=\
 	$U/_grind\
 	$U/_wc\
 	$U/_zombie\
-	$U/_pingpong\
-	$U/_primes\
-	$U/_find\
-	$U/_xargs\
-
+	$U/_trace\
+	$U/_sysinfotest
 
 
 
@@ -277,8 +275,8 @@ ifeq ($(LAB),util)
 endif
 
 
-fs.img: mkfs/mkfs $(UEXTRA) $(UPROGS)
-	mkfs/mkfs fs.img $(UEXTRA) $(UPROGS)
+fs.img: mkfs/mkfs README $(UEXTRA) $(UPROGS)
+	mkfs/mkfs fs.img README $(UEXTRA) $(UPROGS)
 
 -include kernel/*.d user/*.d
 
