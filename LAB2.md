@@ -27,7 +27,12 @@ Add each program to the UPROGS section and include the object file `sysinfo.o` i
 ```
 OBJS = \
     ...
-  $K/sysinfo.o
+
+	$K/sysinfo.o
+
+
+ ...
+ 
 
 UPROGS=\
     ...
