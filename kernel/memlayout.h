@@ -57,3 +57,15 @@
 //   TRAPFRAME (p->trapframe, used by the trampoline)
 //   TRAMPOLINE (the same page as in the kernel)
 #define TRAPFRAME (TRAMPOLINE - PGSIZE)
+
+// Lab 3:
+// Define the virtual address for the shared user syscall page
+#define USYSCALL 0x40000000
+
+#ifndef __ASSEMBLER__
+// Define the struct usyscall to store process-specific data
+struct usyscall
+{
+    int pid; // Process ID
+};
+#endif // __ASSEMBLER__
