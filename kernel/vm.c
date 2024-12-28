@@ -449,3 +449,47 @@ copyinstr(pagetable_t pagetable, char *dst, uint64 srcva, uint64 max)
     return -1;
   }
 }
+
+
+
+// Flag bits of PTE: 
+// how the associated virtual address is allowed to be used:
+
+// PTE_V: is the PTE present?
+// PTE_R: allowed to read (to the page)?
+// PTE_W: allowed to write?
+// PTE_X: interpret the content of the page as instructions and execute
+// PTE_U: allowed user mode instructions to access the page
+
+void 
+walk_recursively(pagetable_t pagetable, int depth)
+{
+  for (int i = 0; i < 512; i++)
+  {
+    // get page table entry
+    pte_t pte = pagetable[i];
+    if (pte & PTE_V) //check whether pte is valid
+    {
+      for (int d = 0; d < depth; d++)
+      {
+        printf(".. ");
+      }
+    printf("%d: pte %p pa %p\n", i, pte, PTE2PA(pte));
+    }
+    
+    if ((pte & PTE_V) && (pte & (PTE_R|PTE_W|PTE_W)) == 0) 
+    {
+      // point to a lower-level page table
+      uint64 child = PTE2PA(pte);
+      walk_recursively((pagetable_t)child, depth+1);
+    }
+  }
+}
+
+void
+vmprint(pagetable_t pagetable)
+{
+    printf("page table %p\n", pagetable);
+
+    walk_recursively(pagetable, 1);
+}

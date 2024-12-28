@@ -32,6 +32,7 @@ def test_pgtbltest():
 def test_nettest_():
     r.match('^ugetpid_test: OK$')
 
+
 @test(10, "pgtbltest: pgaccess", parent=test_pgtbltest)
 def test_nettest_():
     r.match('^pgaccess_test: OK$')
