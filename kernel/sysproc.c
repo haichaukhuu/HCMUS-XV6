@@ -70,7 +70,7 @@ sys_sleep(void)
 }
 
 
-// #ifdef LAB_PGTBL
+#ifdef LAB_PGTBL
 int
 sys_pgaccess(void)
 {
@@ -104,7 +104,7 @@ sys_pgaccess(void)
     return -1;
   return 0;
 }
-// #endif
+#endif
 
 uint64
 sys_kill(void)
