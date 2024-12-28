@@ -175,7 +175,6 @@ int             copyin(pagetable_t, char *, uint64, uint64);
 int             copyinstr(pagetable_t, char *, uint64, uint64);
 void            vmprint(pagetable_t pagetable);
 
-
 // plic.c
 void            plicinit(void);
 void            plicinithart(void);
