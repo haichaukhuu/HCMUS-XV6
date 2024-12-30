@@ -106,4 +106,5 @@ struct proc {
   char name[16];               // Process name (debugging)
 
   struct usyscall *usyscall;
+  uint64 ustack;
 };
